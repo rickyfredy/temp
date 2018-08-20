@@ -1,0 +1,23 @@
+{% if isSuccessConnect is True %}
+	<p>Connection Status: <b style="color: green">Success</b></p>
+{% else %}
+	<p>Connection Status: <b style="color: red">Failed</b></p>
+{% endif %}
+
+{% if file_list %}
+    <ul>
+    {% for file in file_list %}
+        <li>{{ file }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No file are available.</p>
+{% endif %}
+
+<form action="{% url 'uploader:uploader_view' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <p>File Name: <input type="text" name="file_name" /></p>
+    <p>Order File: <input type="file" name="order_file" /></p>
+    <input type="submit" value="Submit">
+</form>

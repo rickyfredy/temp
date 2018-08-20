@@ -1,0 +1,1 @@
+API_URL = "http://frontend-ui.frontend.staging.internal.lel.asia/login"
